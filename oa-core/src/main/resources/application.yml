@@ -14,3 +14,13 @@ spring:
   freemarker:
     template-loader-path: classpath:/templates
     suffix: .ftl
+
+mybatis:
+  mapper-locations: classpath*:/mappers/*.xml
+file:
+  root:
+    path: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/file
+img:
+  rootpath: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/images
+attachment:
+  roopath: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/attachment

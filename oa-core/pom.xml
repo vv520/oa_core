@@ -10,12 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>oa-core</artifactId>
-    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.htwy</groupId>
             <artifactId>oa-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.htwy</groupId>
+            <artifactId>oa-core-service</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -53,32 +57,27 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!-- 导入Jpinyin；汉字转拼音的包 -->
+        <dependency>
+            <groupId>com.github.stuxuhai</groupId>
+            <artifactId>jpinyin</artifactId>
+            <version>1.1.8</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/eu.bitwalker/UserAgentUtils -->
+        <dependency>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>1.20</version>
+        </dependency>
+
+        <!-- 导入fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.36</version>
+        </dependency>
     </dependencies>
 
-    <build>
-        <finalName>oa-core</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <!-- 如果不设置fork,那么不会restart,devtools热部署不会起作用-->
-                    <fork>true</fork>
-                </configuration>
-                <!--热加载 -->
-                <dependencies>
-                    <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>springloaded</artifactId>
-                        <version>1.2.7.RELEASE</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0</version>
-            </plugin>
-        </plugins>
-    </build>
 </project>

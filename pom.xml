@@ -9,6 +9,9 @@
     <modules>
         <module>oa-common</module>
         <module>oa-core</module>
+        <module>oa-core-entity</module>
+        <module>oa-core-dao</module>
+        <module>oa-core-service</module>
     </modules>
     <name>oa</name>
     <description>Demo project for Spring Boot</description>
