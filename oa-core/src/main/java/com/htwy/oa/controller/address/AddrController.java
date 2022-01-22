@@ -6,7 +6,7 @@ import com.htwy.oa.common.formValid.ResultVO;
 import com.htwy.oa.dao.address.AddressMapper;
 import com.htwy.oa.dao.address.AddressDao;
 import com.htwy.oa.dao.address.AddressUserDao;
-import com.htwy.oa.dao.notedao.AttachService;
+import com.htwy.oa.service.note.AttachService;
 import com.htwy.oa.dao.notedao.AttachmentDao;
 import com.htwy.oa.dao.user.UserDao;
 import com.htwy.oa.entity.note.Attachment;

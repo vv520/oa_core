@@ -2,7 +2,7 @@ package com.htwy.oa.service.file;
 
 import com.htwy.oa.dao.filedao.FileListdao;
 import com.htwy.oa.dao.filedao.FilePathdao;
-import com.htwy.oa.dao.notedao.AttachService;
+import com.htwy.oa.service.note.AttachService;
 import com.htwy.oa.dao.notedao.AttachmentDao;
 import com.htwy.oa.entity.file.FileList;
 import com.htwy.oa.entity.file.FilePath;

@@ -8,11 +8,11 @@ import com.htwy.oa.common.formValid.ResultVO;
 import com.htwy.oa.controller.attendce.AttendceController;
 import com.htwy.oa.dao.notedao.AttachmentDao;
 import com.htwy.oa.dao.plandao.PlanDao;
-import com.htwy.oa.dao.plandao.Planservice;
+import com.htwy.oa.service.plan.PlanService;
 import com.htwy.oa.dao.system.StatusDao;
 import com.htwy.oa.dao.system.TypeDao;
 import com.htwy.oa.dao.user.UserDao;
-import com.htwy.oa.dao.user.UserService;
+import com.htwy.oa.service.user.UserService;
 import com.htwy.oa.entity.note.Attachment;
 import com.htwy.oa.entity.plan.Plan;
 import com.htwy.oa.entity.system.SystemStatusList;
@@ -46,7 +46,7 @@ public class PlanController {
     @Autowired
     PlanDao planDao;
     @Autowired
-    Planservice planservice;
+    PlanService planservice;
     @Autowired
     TypeDao typeDao;
     @Autowired

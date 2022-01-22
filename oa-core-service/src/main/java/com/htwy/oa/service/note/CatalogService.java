@@ -1,5 +1,6 @@
-package com.htwy.oa.dao.notedao;
+package com.htwy.oa.service.note;
 
+import com.htwy.oa.dao.notedao.CatalogDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

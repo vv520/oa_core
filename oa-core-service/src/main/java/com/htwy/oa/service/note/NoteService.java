@@ -1,5 +1,6 @@
-package com.htwy.oa.dao.notedao;
+package com.htwy.oa.service.note;
 
+import com.htwy.oa.dao.notedao.NoteDao;
 import com.htwy.oa.entity.note.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,8 +15,8 @@ import javax.transaction.Transactional;
 @Transactional
 public class NoteService {
 
-	@Autowired 
-	NoteDao noteDao;
+	@Autowired
+    NoteDao noteDao;
 	
 	//删除
 	public int delete(long noteId) {

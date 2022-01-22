@@ -1,5 +1,6 @@
-package com.htwy.oa.dao.user;
+package com.htwy.oa.service.user;
 
+import com.htwy.oa.dao.user.UserDao;
 import com.htwy.oa.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ import javax.transaction.Transactional;
 public class UserService {
 
 	@Autowired
-	UserDao userDao;
+    UserDao userDao;
 	
 	//找到该管理员下面的所有用户并且分页
 	public Page<User> findmyemployuser(int page, String baseKey,long parentid) {

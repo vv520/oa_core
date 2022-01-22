@@ -1,5 +1,6 @@
-package com.htwy.oa.dao.plandao;
+package com.htwy.oa.service.plan;
 
+import com.htwy.oa.dao.plandao.PlanDao;
 import com.htwy.oa.entity.plan.Plan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,10 +14,10 @@ import java.util.Date;
 
 @Service
 @Transactional
-public class Planservice {
+public class PlanService {
  
 	@Autowired
-	PlanDao planDao;
+    PlanDao planDao;
 	
 	//删除
 	public Integer delete(long pid) {

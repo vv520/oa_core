@@ -21,6 +21,7 @@ import com.htwy.oa.entity.user.Dept;
 import com.htwy.oa.entity.user.Position;
 import com.htwy.oa.entity.user.User;
 import com.htwy.oa.service.file.FileServices;
+import com.htwy.oa.service.note.CatalogService;
 import com.htwy.oa.service.process.ProcessService;
 import com.github.pagehelper.util.StringUtil;
 import org.apache.commons.io.IOUtils;
@@ -63,7 +64,7 @@ public class NoteController {
     @Autowired
     private NoteDao noteDao;
     @Autowired
-    private NoteService NoteService;
+    private com.htwy.oa.service.note.NoteService NoteService;
     @Autowired
     private CatalogDao catalogDao;
     @Autowired

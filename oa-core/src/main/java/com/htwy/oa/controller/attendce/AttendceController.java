@@ -2,11 +2,11 @@ package com.htwy.oa.controller.attendce;
 
 import com.htwy.oa.common.StringtoDate;
 import com.htwy.oa.dao.attendcedao.AttendceDao;
-import com.htwy.oa.dao.attendcedao.AttendceService;
+import com.htwy.oa.service.attendce.AttendceService;
 import com.htwy.oa.dao.system.StatusDao;
 import com.htwy.oa.dao.system.TypeDao;
 import com.htwy.oa.dao.user.UserDao;
-import com.htwy.oa.dao.user.UserService;
+import com.htwy.oa.service.user.UserService;
 import com.htwy.oa.entity.attendce.Attends;
 import com.htwy.oa.entity.system.SystemStatusList;
 import com.htwy.oa.entity.system.SystemTypeList;
