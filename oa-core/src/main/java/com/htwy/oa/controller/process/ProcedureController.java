@@ -15,6 +15,7 @@ import com.htwy.oa.entity.system.SystemTypeList;
 import com.htwy.oa.entity.user.User;
 import com.htwy.oa.service.process.ProcessService;
 import com.github.pagehelper.util.StringUtil;
+import com.htwy.oa.utils.AmountUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -307,7 +308,7 @@ public class ProcedureController {
             }
             List<DetailsBurse> detaillist = dedao.findByBurs(bu);
             String type = tydao.findname(bu.getTypeId());
-            String money = ProcessService.numbertocn(bu.getAllMoney());
+            String money = AmountUtils.numbertocn(bu.getAllMoney());
             model.addAttribute("prove", prove);
             model.addAttribute("audit", audit);
             model.addAttribute("type", type);
@@ -321,7 +322,7 @@ public class ProcedureController {
             Double tramoney = 0.0;
             EvectionMoney emoney = emdao.findByProId(process);
 
-            String money = ProcessService.numbertocn(emoney.getMoney());
+            String money = AmountUtils.numbertocn(emoney.getMoney());
             List<Stay> staylist = sadao.findByEvemoney(emoney);
             for (Stay stay : staylist) {
                 staymoney += stay.getStayMoney();

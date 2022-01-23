@@ -4,12 +4,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
-/**
- * 系统菜单实体类表
- * 
- * @author luoxiang
- *
- */
 @Entity
 @Table(name = "aoa_sys_menu")
 public class SystemMenu {

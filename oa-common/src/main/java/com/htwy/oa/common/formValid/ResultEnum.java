@@ -1,12 +1,5 @@
 package com.htwy.oa.common.formValid;
 
-/**
- * Description:
- * 异常结果抛出
- *
- * @author zzy
- * @create 2017-09-12 14:56
- */
 public enum ResultEnum {
     ERROR(2, "验证失败"),
     SUCCESS(200, "成功"),

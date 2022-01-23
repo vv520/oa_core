@@ -31,6 +31,9 @@ import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * 考勤管理
+ */
 @Controller
 @RequestMapping("/")
 public class AttendceController {
@@ -50,8 +53,6 @@ public class AttendceController {
     @Autowired
     StatusDao statusDao;
 
-    List<Attends> alist;
-    List<User> uList;
     Date start, end;
     String month_;
     // 格式转化导入

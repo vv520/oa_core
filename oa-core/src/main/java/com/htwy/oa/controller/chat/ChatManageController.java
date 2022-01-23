@@ -30,6 +30,9 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.*;
 
+/**
+ * 讨论区
+ */
 @Controller
 @RequestMapping("/")
 public class ChatManageController {

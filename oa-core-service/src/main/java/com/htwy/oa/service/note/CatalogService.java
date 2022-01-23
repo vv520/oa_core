@@ -1,22 +1,9 @@
 package com.htwy.oa.service.note;
 
-import com.htwy.oa.dao.notedao.CatalogDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+public interface CatalogService {
 
-import javax.transaction.Transactional;
+    //删除
+    int delete(long catalogId);
 
-@Service
-@Transactional
-public class CatalogService {
 
-	@Autowired
-	CatalogDao catalogDao;
-	
-	//删除
-		public int delete(long catalogId) {
-			return catalogDao.delete(catalogId);
-		}
-		
-	
 }

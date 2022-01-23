@@ -5,12 +5,6 @@ import com.htwy.oa.entity.user.User;
 
 import javax.persistence.*;
 
-/**
- * 通知与用户中间关联表，多一个字段，是否已读
- * 
- * @author luoxiang
- *
- */
 @Entity
 @Table(name = "aoa_notice_user_relation")
 public class NoticeUserRelation {

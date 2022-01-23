@@ -4,12 +4,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
-/**
- * 系统状态总表
- * 
- * @author luoxiang
- *
- */
 @Entity
 @Table(name = "aoa_status_list")
 public class SystemStatusList {

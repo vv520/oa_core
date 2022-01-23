@@ -46,6 +46,9 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * 通讯录管理
+ */
 @Controller
 @RequestMapping("/")
 public class AddrController {
@@ -240,7 +243,6 @@ public class AddrController {
                 /*Attachment att= (Attachment) fileServices.savefile(file, user, null, false);*/
                 director.setAttachment(att.getAttachmentId());
             }
-
             directorUser.setHandle(true);
             directorUser.setDirector(director);
             directorUser.setUser(user);

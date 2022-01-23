@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 /**
  * 部门实体类
- * @author Administrator
  *
  */
 @Entity

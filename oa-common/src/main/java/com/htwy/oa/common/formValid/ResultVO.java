@@ -1,13 +1,5 @@
 package com.htwy.oa.common.formValid;
 
-/**
- * Description:
- * http请求返回的最外层对象
- *
- * @author zzy
- * @create 2017-09-07 13:38
- */
-
 public class ResultVO<T> {
     /**
      * 错误码

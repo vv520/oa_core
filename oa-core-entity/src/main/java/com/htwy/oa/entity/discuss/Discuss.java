@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.Set;
 
 /**
-
  * 用户id
  * 投票id
  * 没有外键

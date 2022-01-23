@@ -8,11 +8,6 @@ import java.util.Date;
 
 @Entity
 @Table(name="aoa_notepaper")
-/**
- * 便签表
- * @author 宋佳
- *
- */
 public class Notepaper {
 	
 	

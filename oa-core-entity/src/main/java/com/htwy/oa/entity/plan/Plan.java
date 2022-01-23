@@ -9,11 +9,6 @@ import java.util.Date;
 
 @Entity
 @Table(name="aoa_plan_list")
-/**
- * 计划表
- * @author 宋佳
- *
- */
 public class Plan {
 
 	@Id

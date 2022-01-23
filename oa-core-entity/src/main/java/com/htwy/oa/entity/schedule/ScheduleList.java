@@ -12,7 +12,6 @@ import java.util.List;
 @Table(name = "aoa_schedule_list")
 public class ScheduleList {
 
-	
 	@Id
 	@Column(name = "rc_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

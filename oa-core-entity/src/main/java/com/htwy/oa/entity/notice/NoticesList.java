@@ -3,12 +3,6 @@ package com.htwy.oa.entity.notice;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * 通知模块通知总表
- * 
- * @author luoxiang
- *
- */
 @Entity
 @Table(name = "aoa_notice_list")
 public class NoticesList {
