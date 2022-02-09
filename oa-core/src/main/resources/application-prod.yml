@@ -1,0 +1,28 @@
+server:
+  port: 8001
+
+spring:
+  profiles:
+    active: prod
+  application:
+    name: cloud-oa-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动包
+    url: jdbc:mysql://106.14.176.167:3306/htwy_oa?useUnicode=true&characterEncoding=utf8 # 数据库名称
+    username: root
+    password: 123456
+
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+
+mybatis:
+  mapper-locations: classpath*:/mappers/*.xml
+file:
+  root:
+    path: /u01/apache-tomcat-9.0.58/webapps/oa/WEB-INF/classes/static/file
+img:
+  rootpath: /u01/apache-tomcat-9.0.58/webapps/oa/WEB-INF/classes/static/images
+attachment:
+  roopath: /u01/apache-tomcat-9.0.58/webapps/oa/WEB-INF/classes/static/attachment

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htwy.oa.dao.salary.SalaryMapper">
+    <resultMap id="salaryMap" type="com.htwy.oa.entity.salary.Salary">
+        <id column="salary_id" property="salaryId" jdbcType="BIGINT" javaType="java.lang.Long"></id>
+        <result column="user_name" property="userName" jdbcType="DOUBLE" javaType="java.lang.String"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result column="month" property="month" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result column="work_days" property="workDays" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result column="leave_days" property="leaveDays" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result column="price" property="price" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result column="base_salary" property="baseSalary" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="travel_allowance" property="travelAllowance" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="fee_reimburse" property="feeReimburse" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="personal_endowment_insurance" property="personalEndowmentInsurance" jdbcType="DOUBLE"
+                javaType="java.lang.Double"/>
+        <result column="personal_provident_fund" property="personalProvidentFund" jdbcType="DOUBLE"
+                javaType="java.lang.Double"/>
+        <result column="personal_medical_insurance" property="personalMedicalInsurance" jdbcType="DOUBLE"
+                javaType="java.lang.Double"/>
+        <result column="company_endowment_insurance" property="companyEndowmentInsurance" jdbcType="DOUBLE"
+                javaType="java.lang.Double"/>
+        <result column="company_provident_fund" property="companyProvidentFund" jdbcType="DOUBLE"
+                javaType="java.lang.Double"/>
+        <result column="company_medical_insurance" property="companyMedicalInsurance" jdbcType="DOUBLE"
+                javaType="java.lang.Double"/>
+        <result column="other_fee" property="otherFee" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="net_salary" property="netSalary" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="employee_income" property="employeeIncome" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="net_income" property="netIncome" jdbcType="DOUBLE" javaType="java.lang.Double"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="queryAllSalary" resultMap="salaryMap">
+        SELECT t.salary_id,
+        t.user_name,
+        t.user_id,
+        t.month,
+        t.work_days,
+        t.leave_days,
+        t.price,
+        t.base_salary,
+        t.travel_allowance,
+        t.fee_reimburse,
+        t.personal_endowment_insurance,
+        t.personal_provident_fund,
+        t.personal_medical_insurance,
+        t.company_endowment_insurance,
+        t.company_provident_fund,
+        t.company_medical_insurance,
+        t.other_fee,
+        t.net_salary,
+        t.employee_income,
+        t.net_income,
+        t.remark
+        FROM aoa_salary t
+        <where>
+            <if test="salaryId != null">
+                t.salary_id = #{salaryId}
+            </if>
+            <if test="month != null">
+                and t.month = #{month}
+            </if>
+        </where>
+        ;
+    </select>
+
+    <insert id="insert">
+        insert into aoa_salary(user_id, user_name, month, work_days, leave_days, price, base_salary, travel_allowance,
+                               fee_reimburse, personal_endowment_insurance, personal_provident_fund,
+                               personal_medical_insurance,
+                               company_endowment_insurance, company_provident_fund, company_medical_insurance,
+                               other_fee, net_salary,
+                               employee_income, net_income, remark)
+        values (#{userId}, #{userName}, #{month}, #{workDays}, #{leaveDays}, #{price}, #{baseSalary},
+                #{travelAllowance},
+                #{feeReimburse}, #{personalEndowmentInsurance}, #{personalProvidentFund},
+                #{personalMedicalInsurance},
+                #{companyEndowmentInsurance}, #{companyProvidentFund}, #{companyMedicalInsurance},
+                #{otherFee}, #{netSalary},
+                #{employeeIncome}, #{netIncome}, #{remark});
+    </insert>
+
+    <delete id="deleteByMonth" parameterType="java.lang.String">
+        delete
+        from aoa_salary t
+        where t.month = #{month}
+    </delete>
+</mapper>

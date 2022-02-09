@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htwy.oa.dao.user.UserMapper">
+    <select id="queryUserList" resultType="com.htwy.oa.entity.user.User">
+        select t.*
+        from aoa_user t;
+    </select>
+</mapper>

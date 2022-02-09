@@ -136,6 +136,8 @@ public class UserController {
             user2.setBank(user.getBank());
             user2.setThemeSkin(user.getThemeSkin());
             user2.setSalary(user.getSalary());
+            user2.setFundBase(user.getFundBase());
+            user2.setSocialSecurityBase(user.getSocialSecurityBase());
             user2.setFatherId(dept.getDeptmanager());
             if (isbackpassword) {
                 user2.setPassword("123456");
