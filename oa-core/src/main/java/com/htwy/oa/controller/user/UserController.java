@@ -51,9 +51,11 @@ public class UserController {
                              @RequestParam(value = "size", defaultValue = "10") int size
     ) {
         Sort sort = Sort.by(new Order(Direction.ASC, "dept"));
+        List<Dept> depts = (List<Dept>) ddao.findAll();
         Pageable pa = PageRequest.of(page, size, sort);
         Page<User> userspage = udao.findByIsLock(0, pa);
         List<User> users = userspage.getContent();
+        model.addAttribute("depts", depts);
         model.addAttribute("users", users);
         model.addAttribute("page", userspage);
         model.addAttribute("url", "usermanagepaging");
@@ -66,6 +68,7 @@ public class UserController {
                              @RequestParam(value = "usersearch", required = false) String usersearch
     ) {
         Sort sort = Sort.by(new Order(Direction.ASC, "dept"));
+        List<Dept> depts = (List<Dept>) ddao.findAll();
         Pageable pa = PageRequest.of(page, size, sort);
         Page<User> userspage = null;
         if (StringUtil.isEmpty(usersearch)) {
@@ -75,6 +78,7 @@ public class UserController {
             userspage = udao.findnamelike(usersearch, pa);
         }
         List<User> users = userspage.getContent();
+        model.addAttribute("depts", depts);
         model.addAttribute("users", users);
         model.addAttribute("page", userspage);
         model.addAttribute("url", "usermanagepaging");
