@@ -76,7 +76,6 @@
                         <td><span>${(item.employeeIncome)!''}</span></td>
                         <td><span>${(item.netIncome)!''}</span></td>
                     </tr>
-
                 </#list>
             </table>
         </div>
