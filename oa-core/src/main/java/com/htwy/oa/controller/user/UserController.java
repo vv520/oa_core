@@ -52,10 +52,12 @@ public class UserController {
     ) {
         Sort sort = Sort.by(new Order(Direction.ASC, "dept"));
         List<Dept> depts = (List<Dept>) ddao.findAll();
+        List<Role> roles = (List<Role>) rdao.findAll();
         Pageable pa = PageRequest.of(page, size, sort);
         Page<User> userspage = udao.findByIsLock(0, pa);
         List<User> users = userspage.getContent();
         model.addAttribute("depts", depts);
+        model.addAttribute("roles", roles);
         model.addAttribute("users", users);
         model.addAttribute("page", userspage);
         model.addAttribute("url", "usermanagepaging");
@@ -65,20 +67,24 @@ public class UserController {
     @RequestMapping("usermanagepaging")
     public String userPaging(Model model, @RequestParam(value = "page", defaultValue = "0") int page,
                              @RequestParam(value = "size", defaultValue = "10") int size,
-                             @RequestParam(value = "usersearch", required = false) String usersearch
+                             @RequestParam(value = "username", required = false) String username,
+                             @RequestParam(value = "deptId", required = false) Long deptId,
+                             @RequestParam(value = "roleId", required = false) Long roleId
     ) {
         Sort sort = Sort.by(new Order(Direction.ASC, "dept"));
         List<Dept> depts = (List<Dept>) ddao.findAll();
+        List<Role> roles = (List<Role>) rdao.findAll();
         Pageable pa = PageRequest.of(page, size, sort);
-        Page<User> userspage = null;
-        if (StringUtil.isEmpty(usersearch)) {
+        Page<User> userspage = udao.queryUserPage(username, deptId, roleId, pa);
+        /*if (StringUtil.isEmpty(username)) {
             userspage = udao.findByIsLock(0, pa);
         } else {
-            System.out.println(usersearch);
-            userspage = udao.findnamelike(usersearch, pa);
-        }
+            System.out.println(username);
+            userspage = udao.findnamelike(username, pa);
+        }*/
         List<User> users = userspage.getContent();
         model.addAttribute("depts", depts);
+        model.addAttribute("roles", roles);
         model.addAttribute("users", users);
         model.addAttribute("page", userspage);
         model.addAttribute("url", "usermanagepaging");

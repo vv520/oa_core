@@ -39,8 +39,12 @@
 
     function queryUser() {
         var username = $("#username").val();
-        var dept =
-        console.log(username);
-        $(".thistable").load("usermanagepaging", {username: username});
+        var deptId = $("#deptId").val();
+        var roleId = $("#roleId").val();
+        $(".thistable").load("usermanagepaging", {
+            username: username,
+            deptId: deptId,
+            roleId: roleId
+        });
     }
 </script>
