@@ -118,4 +118,42 @@ public class SalaryController {
         model.addAttribute("success", 1);
         return "/salarymanage";
     }
+
+    @RequestMapping("myselfsalary")
+    public ModelAndView myselfSalary(@RequestParam(value = "page", defaultValue = "0") int page,
+                              @RequestParam(value = "size", defaultValue = "10") int size) {
+        Pageable pa = PageRequest.of(page, size);
+        Page<Salary> pageSalary = salaryDao.findAll(pa);
+        ModelAndView mav = new ModelAndView("salary/myselfSalaryMain");
+        //List<Salary> lists = salaryService.queryAllSalary(null);
+        List<Salary> lists = pageSalary.getContent();
+        mav.addObject("page", pageSalary);
+        mav.addObject("lists", lists);
+        mav.addObject("url", "salaryQuery");
+        return mav;
+    }
+
+    /**
+     * 条件查询
+     */
+    @RequestMapping("myselfSalaryQuery")
+    public String myselfSalaryQuery(HttpServletRequest req, Model model,
+                              @RequestParam(value = "page", defaultValue = "0") int page,
+                              @RequestParam(value = "size", defaultValue = "10") int size,
+                              @RequestParam(value = "search", required = false) String search) {
+        Sort sort = Sort.by(new Sort.Order(Sort.Direction.ASC, "salaryId"));
+        Pageable pa = PageRequest.of(page, size, sort);
+        Page<Salary> pageSalary = salaryDao.findAll(pa);
+        /*if (StringUtil.isEmpty(salarySearch)) {
+            pageSalary =
+        } else {
+            userspage = udao.findnamelike(usersearch, pa);
+        }*/
+        List<Salary> lists = pageSalary.getContent();
+        model.addAttribute("page", pageSalary);
+        model.addAttribute("lists", lists);
+        model.addAttribute("url", "salaryQuery");
+
+        return "salary/salarylist";
+    }
 }

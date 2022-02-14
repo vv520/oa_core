@@ -27,17 +27,17 @@ logging:
 
 mybatis:
   mapper-locations: classpath*:/mappers/**/*.xml
-#file:
-#  root:
-#    path: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/file
-#img:
-#  rootpath: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/images
-#attachment:
-#  roopath: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/attachment
 file:
   root:
-    path: F:\code\oa\oa-core\src\main\resources\static\file
+    path: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/file
 img:
-  rootpath: F:\code\oa\oa-core\src\main\resources\static\images
+  rootpath: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/images
 attachment:
-  roopath: F:\code\oa\oa-core\src\main\resources\static\attachment
+  roopath: /Users/xuweiwei/code/gitcode/oa_core/oa-core/src/main/resources/static/attachment
+#file:
+#  root:
+#    path: F:\code\oa\oa-core\src\main\resources\static\file
+#img:
+#  rootpath: F:\code\oa\oa-core\src\main\resources\static\images
+#attachment:
+#  roopath: F:\code\oa\oa-core\src\main\resources\static\attachment
