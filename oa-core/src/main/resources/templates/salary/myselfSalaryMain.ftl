@@ -33,6 +33,6 @@
 <script type="text/javascript">
     $(".thistable").on("click", ".searchClick", function () {
         var search = $(".thistable .search").val();
-        $(".thistable").load("salaryQuery", {search: search});
+        $(".thistable").load("myselfSalaryQuery", {search: search});
     });
 </script>

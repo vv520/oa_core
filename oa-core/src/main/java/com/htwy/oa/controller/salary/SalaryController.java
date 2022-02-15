@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -120,16 +121,18 @@ public class SalaryController {
     }
 
     @RequestMapping("myselfsalary")
-    public ModelAndView myselfSalary(@RequestParam(value = "page", defaultValue = "0") int page,
-                              @RequestParam(value = "size", defaultValue = "10") int size) {
+    public ModelAndView myselfSalary(HttpServletRequest req, @RequestParam(value = "page", defaultValue = "0") int page,
+                                     @RequestParam(value = "size", defaultValue = "10") int size) {
         Pageable pa = PageRequest.of(page, size);
-        Page<Salary> pageSalary = salaryDao.findAll(pa);
+        HttpSession session = req.getSession();
+        Long uid = Long.parseLong(session.getAttribute("userId") + "");
+        Page<Salary> pageSalary = salaryDao.querySalaryPage(uid, null, pa);
         ModelAndView mav = new ModelAndView("salary/myselfSalaryMain");
         //List<Salary> lists = salaryService.queryAllSalary(null);
         List<Salary> lists = pageSalary.getContent();
         mav.addObject("page", pageSalary);
         mav.addObject("lists", lists);
-        mav.addObject("url", "salaryQuery");
+        mav.addObject("url", "myselfSalaryQuery");
         return mav;
     }
 
@@ -138,22 +141,19 @@ public class SalaryController {
      */
     @RequestMapping("myselfSalaryQuery")
     public String myselfSalaryQuery(HttpServletRequest req, Model model,
-                              @RequestParam(value = "page", defaultValue = "0") int page,
-                              @RequestParam(value = "size", defaultValue = "10") int size,
-                              @RequestParam(value = "search", required = false) String search) {
+                                    @RequestParam(value = "page", defaultValue = "0") int page,
+                                    @RequestParam(value = "size", defaultValue = "10") int size,
+                                    @RequestParam(value = "search", required = false) String search) {
+        HttpSession session = req.getSession();
+        Long uid = Long.parseLong(session.getAttribute("userId") + "");
         Sort sort = Sort.by(new Sort.Order(Sort.Direction.ASC, "salaryId"));
         Pageable pa = PageRequest.of(page, size, sort);
-        Page<Salary> pageSalary = salaryDao.findAll(pa);
-        /*if (StringUtil.isEmpty(salarySearch)) {
-            pageSalary =
-        } else {
-            userspage = udao.findnamelike(usersearch, pa);
-        }*/
+        Page<Salary> pageSalary = salaryDao.querySalaryPage(uid, "".equals(search) ? null : search, pa);
         List<Salary> lists = pageSalary.getContent();
         model.addAttribute("page", pageSalary);
         model.addAttribute("lists", lists);
-        model.addAttribute("url", "salaryQuery");
+        model.addAttribute("url", "myselfSalaryQuery");
 
-        return "salary/salarylist";
+        return "salary/myselfSalarylist";
     }
 }
