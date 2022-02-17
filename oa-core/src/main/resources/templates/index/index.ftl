@@ -32,6 +32,8 @@ maximum-scale=1, user-scalable=no">
 <script>
 	function changepath(path){
 		$('iframe').attr('src',path);
+		//生产
+      //  $('iframe').attr('src', '/oa' + path);
 	}
 </script>
 <#include "/common/iosstyle.ftl">
