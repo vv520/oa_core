@@ -1,7 +1,11 @@
 package com.htwy.oa.dao.salary;
 
 import com.htwy.oa.entity.salary.Salary;
+import com.htwy.oa.entity.user.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * @author Vv
@@ -10,4 +14,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @date 2022/1/279:20 上午
  */
 public interface SalaryDao extends JpaRepository<Salary, Long> {
+
+    @Query(value = "from Salary u where 1 = 1 " +
+            "and u.userId = coalesce(?1, u.userId) " +
+            "and u.month = coalesce(?2, u.month)"
+    )
+    Page<Salary> querySalaryPage(Long userId, String month, Pageable pa);
 }
