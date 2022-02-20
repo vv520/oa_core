@@ -6,6 +6,9 @@ import com.htwy.oa.dao.user.UserDao;
 import com.htwy.oa.entity.salary.Salary;
 import com.htwy.oa.entity.user.User;
 import com.htwy.oa.service.salary.SalaryService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,7 @@ import java.util.Map;
  * @date 2022/1/252:24 下午
  */
 @Service
+@Slf4j
 public class SalaryServiceImpl implements SalaryService {
 
     @Autowired
@@ -37,14 +41,17 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public void calculation(String month) {
         if (month == null) {
-            month = DateUtil.format(new Date(), "yyyy-MM");
+            //默认计算上个月的数据
+            month = DateUtil.format(DateUtil.lastMonth(), "yyyy-MM");
         }
-        //查找当月是否存在数据（已计算）
+        //查找计算月是否存在数据（已计算）
         Map<String, Object> param = new HashMap<>();
         param.put("month", month);
         List<Salary> list = salaryMapper.queryAllSalary(param);
         if(list != null && list.size() > 0){
-            throw new RuntimeException("当月已计算");
+            //throw new RuntimeException("当月已计算");
+            log.info("---------该月已计算：{}", month);
+            return;
         }
         //salaryMapper.deleteByMonth(month);
         //查找计算用户
@@ -54,7 +61,7 @@ public class SalaryServiceImpl implements SalaryService {
             double fundbase = user.getFundBase(); //个人公积金基数
             Salary salary = new Salary();
             salary.setUserId(user.getUserId());
-            salary.setUserName(user.getUserName());
+            salary.setUserName(user.getRealName());
             salary.setMonth(month);  //月份
             salary.setWorkDays(21L); //工作天数
             salary.setLeaveDays(0L); //请假天数
@@ -68,6 +75,14 @@ public class SalaryServiceImpl implements SalaryService {
             salary.setCompanyEndowmentInsurance(insuranceBase * 0.16);//企业养老保险 = 个人参保基数 * 0.16
             salary.setCompanyProvidentFund(fundbase * 0.05);//企业公积金 = 个人公积金基数 * 0.05
             salary.setCompanyMedicalInsurance(insuranceBase * 0.06);//企业医保 = 个人参保基数 * 0.06
+
+            salary.setPersonalUnemploymentInsurance(0); //个人失业保险
+            salary.setPersonalInjuryInsurance(0);  //个人工伤保险
+            salary.setPersonalIllnessInsurance(0); //个人大病医疗
+            salary.setCompanyUnemploymentInsurance(0); //企业失业保险
+            salary.setCompanyInjuryInsurance(0);  //企业工伤保险
+            salary.setCompanyIllnessInsurance(0); //企业大病医疗
+            salary.setPersonalIncomeTax(0); //个人所得税
             salary.setOtherFee(0);//其他扣除项
             //实发工资 = 基本工资 + 出差补贴 + 费用报销 - 个人养老保险 - 个人公积金 - 个人医保 - 个人所得税
             double netSalary = salary.getBaseSalary() + salary.getTravelAllowance() + salary.getFeeReimburse()

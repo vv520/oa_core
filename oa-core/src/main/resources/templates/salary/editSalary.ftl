@@ -75,29 +75,60 @@
                                 <label class="control-label"><span>报销费用</span></label>
                                 <input name="feeReimburse" class="form-control" value="${(salary.feeReimburse)!''}"/>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label class="control-label"><span>个人养老保险</span></label>
-                                <input name="personalEndowmentInsurance" class="form-control" value="${(salary.personalEndowmentInsurance)!''}"/>
-                            </div>
+
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>个人公积金</span></label>
                                 <input name="personalProvidentFund" class="form-control" value="${(salary.personalProvidentFund)!''}"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label class="control-label"> <span>个人医保</span></label>
-                                <input name="personalMedicalInsurance" class="form-control" value="${(salary.personalMedicalInsurance)!''}"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label class="control-label"> <span>企业养老保险</span></label>
-                                <input name="companyEndowmentInsurance" class="form-control" value="${(salary.companyEndowmentInsurance)!''}"/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"> <span>企业公积金</span></label>
                                 <input name="companyProvidentFund" class="form-control" value="${(salary.companyProvidentFund)!''}"/>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label class="control-label"> <span>企业医保</span></label>
+                                <label class="control-label"><span>个人养老保险</span></label>
+                                <input name="personalEndowmentInsurance" class="form-control" value="${(salary.personalEndowmentInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>企业养老保险</span></label>
+                                <input name="companyEndowmentInsurance" class="form-control" value="${(salary.companyEndowmentInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>个人医疗保险</span></label>
+                                <input name="personalMedicalInsurance" class="form-control" value="${(salary.personalMedicalInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>企业医疗保险</span></label>
                                 <input name="companyMedicalInsurance" class="form-control" value="${(salary.companyMedicalInsurance)!''}"/>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>个人失业保险</span></label>
+                                <input name="personalUnemploymentInsurance" class="form-control" value="${(salary.personalUnemploymentInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>企业失业保险</span></label>
+                                <input name="companyUnemploymentInsurance" class="form-control" value="${(salary.companyUnemploymentInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>个人工伤保险</span></label>
+                                <input name="personalInjuryInsurance" class="form-control" value="${(salary.personalInjuryInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>企业工伤保险</span></label>
+                                <input name="companyInjuryInsurance" class="form-control" value="${(salary.companyInjuryInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>个人大病医疗</span></label>
+                                <input name="personalIllnessInsurance" class="form-control" value="${(salary.personalIllnessInsurance)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"> <span>企业大病医疗</span></label>
+                                <input name="companyIllnessInsurance" class="form-control" value="${(salary.companyIllnessInsurance)!''}"/>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"><span>个人所得税</span></label>
+                                <input name="personalIncomeTax" class="form-control" value="${(salary.personalIncomeTax)!''}"/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>其他扣除项</span></label>

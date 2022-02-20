@@ -58,4 +58,20 @@ public class Salary {
     private double netIncome; // '公司净收益',
     @Column(name = "remark")
     private String remark; // '备注',
+
+    @Column(name = "personal_unemployment_insurance")
+    private double personalUnemploymentInsurance; // '个人失业保险',
+    @Column(name = "personal_injury_insurance")
+    private double personalInjuryInsurance; // '个人工伤保险',
+    @Column(name = "personal_illness_insurance")
+    private double personalIllnessInsurance; // '个人大病医疗',
+    @Column(name = "company_unemployment_insurance")
+    private double companyUnemploymentInsurance; // '企业失业保险',
+    @Column(name = "company_injury_insurance")
+    private double companyInjuryInsurance; // '企业工伤保险',
+    @Column(name = "company_illness_insurance")
+    private double companyIllnessInsurance; // '企业大病医疗',
+    @Column(name = "personal_income_tax")
+    private double personalIncomeTax; // '个人所得税',
+
 }
