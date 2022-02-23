@@ -43,14 +43,25 @@
                             <span class="error-mess"></span>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 form-group">
-                                <label class="control-label"><span>姓名</span></label>
-                                <input name="userName" readonly="readonly" class="form-control" value="${(salary.userName)!''}"/>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label class="control-label"><span>月份</span></label>
-                                <input name="month" readonly="readonly" class="form-control" value="${(salary.month)!''}"/>
-                            </div>
+                            <#if where??>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"><span>姓名</span></label>
+                                    <input name="userName" readonly="readonly" class="form-control" value="${(salary.userName)!''}"/>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"><span>月份</span></label>
+                                    <input name="month" readonly="readonly" class="form-control" value="${(salary.month)!''}"/>
+                                </div>
+                            <#else>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"><span>姓名</span></label>
+                                    <input name="userName" class="form-control" value="${(salary.userName)!''}"/>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"><span>月份</span></label>
+                                    <input name="month" class="form-control" value="${(salary.month)!''}"/>
+                                </div>
+                            </#if>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>上班天数</span></label>
                                 <input name="workDays" class="form-control" value="${(salary.workDays)!''}"/>
@@ -167,33 +178,6 @@
 <script type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>
 <#include "/common/modalTip.ftl"/>
 <script type="text/javascript">
-    $(".usernameonliy").on("blur", function () {
-        console.log("改变了！！~~");
-        $.post("useronlyname", {"username": $(this).val()}, function (data) {
-            console.log(data);
-            $(".usernameonliyvalue").val(data);
-        });
-    });
-    $(".usernameonliy").focus(function () {
-        $(this).parent().removeClass("has-error has-feedback");
-        $('.alert-danger').css('display', 'none');
-    });
-
-
-    $(".deptselect").on("change", function () {
-        var selectdeptid = $(this).val();
-
-        $.post("selectdept", {selectdeptid: selectdeptid}, function (data) {
-            $(".positionselect").empty();
-
-            $.each(data, function (i, item) {
-                var potion = $("<option value=" + item.id + ">" + item.name + "</option>");
-                $(".positionselect").append(potion);
-            });
-        });
-
-    });
-
     //表单提交前执行的onsubmit()方法；返回false时，执行相应的提示信息；返回true就提交表单到后台校验与执行
     function check() {
         return true;

@@ -11,7 +11,10 @@
             <input type="text" class="form-control" placeholder="month" aria-describedby="basic-addon1">
         </div>-->
         <h3 class="box-title">
-            <a href="salaryCalculation" class="label label-success" style="padding: 5px;">
+            <a href="salaryEdit" class="label label-success" style="padding: 5px;">
+                <span class="glyphicon glyphicon-plus"></span> 新增
+            </a>
+            <a href="salaryCalculation" class="label label-success" style="padding: 5px;margin-left:5px;">
                 <span class="glyphicon glyphicon-pencil"></span> 计算
             </a>
         </h3>
@@ -28,8 +31,8 @@
     </div>
     <!--盒子身体-->
     <div class="box-body no-padding">
-        <div class="table-responsive">
-            <table class="table text-nowrap">
+        <div class="table-responsive" style="overflow:scroll;">
+            <table class="table text-nowrap" style="min-width:1500px;">
                 <tr>
                     <th scope="col">操作</th>
                     <th scope="col">姓名</th>
@@ -62,7 +65,10 @@
                 <#list lists as item>
                     <tr>
                         <td><a href="salaryEdit?salaryId=${item.salaryId}" class="label xiugai"><span
-                                        class="glyphicon glyphicon-edit"></span> 修改</a></td>
+                                        class="glyphicon glyphicon-edit"></span> 修改</a><a
+                                onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};"
+                                href="deleteSalary?salaryId=${item.salaryId}" class="label shanchu"><span
+                                class="glyphicon glyphicon-remove"></span> 删除</a></td>
                         <td><span>${(item.userName)!''}</span></td>
                         <td><span>${(item.month)!''}</span></td>
                         <td><span>${(item.workDays)!''}</span></td>

@@ -156,4 +156,18 @@ public class SalaryController {
 
         return "salary/myselfSalarylist";
     }
+
+    /**
+     * 删除
+     *
+     * @param salaryId
+     * @param model
+     * @return
+     */
+    @RequestMapping("deleteSalary")
+    public String deleteSalary(@RequestParam("salaryId") Long salaryId, Model model) {
+        salaryDao.deleteById(salaryId);
+        model.addAttribute("success", 1);
+        return "/salarymanage";
+    }
 }
