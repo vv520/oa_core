@@ -126,7 +126,7 @@ public class SalaryController {
         Pageable pa = PageRequest.of(page, size);
         HttpSession session = req.getSession();
         Long uid = Long.parseLong(session.getAttribute("userId") + "");
-        Page<Salary> pageSalary = salaryDao.querySalaryPage(uid, null, pa);
+        Page<Salary> pageSalary = salaryDao.querySalaryPage(null, null, pa);
         ModelAndView mav = new ModelAndView("salary/myselfSalaryMain");
         //List<Salary> lists = salaryService.queryAllSalary(null);
         List<Salary> lists = pageSalary.getContent();
@@ -143,12 +143,13 @@ public class SalaryController {
     public String myselfSalaryQuery(HttpServletRequest req, Model model,
                                     @RequestParam(value = "page", defaultValue = "0") int page,
                                     @RequestParam(value = "size", defaultValue = "10") int size,
-                                    @RequestParam(value = "search", required = false) String search) {
+                                    @RequestParam(value = "username", required = false) String username,
+                                    @RequestParam(value = "month", required = false) String month) {
         HttpSession session = req.getSession();
         Long uid = Long.parseLong(session.getAttribute("userId") + "");
         Sort sort = Sort.by(new Sort.Order(Sort.Direction.ASC, "salaryId"));
         Pageable pa = PageRequest.of(page, size, sort);
-        Page<Salary> pageSalary = salaryDao.querySalaryPage(uid, "".equals(search) ? null : search, pa);
+        Page<Salary> pageSalary = salaryDao.querySalaryPage("".equals(username) ? null : username, "".equals(month) ? null : month, pa);
         List<Salary> lists = pageSalary.getContent();
         model.addAttribute("page", pageSalary);
         model.addAttribute("lists", lists);
