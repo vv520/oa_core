@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htwy.oa.dao.project.ProjectReportMapper">
+
+    <select id="findPeojectReport" resultType="java.util.Map">
+        with project_info as (
+            select
+              t.month,
+              sum(t.project_amount) as project_amount,
+              sum(t.paid_in_amount) as paid_in_amount,
+              sum(t.special_ticket_cost) as special_ticket_cost
+            from aoa_project_funds t
+            group by t. month
+        ),
+        salary_info as (
+            select
+              s.month,
+              sum(s.net_salary) as net_salary,
+              sum(s.personal_income_tax) as personal_income_tax,
+              sum(s.personal_provident_fund + s.company_provident_fund) as provident_fund,
+              sum(s.personal_endowment_insurance + s.personal_medical_insurance + s.personal_unemployment_insurance +
+                 s.personal_injury_insurance + s.personal_illness_insurance + s.company_endowment_insurance + s.company_medical_insurance +
+                s.company_unemployment_insurance + s.company_injury_insurance + s.company_illness_insurance) as insurance
+            from aoa_salary s
+            group by s.month
+        ) select
+            p.month,
+            p.project_amount,
+            p.paid_in_amount,
+            p.special_ticket_cost,
+            s.net_salary,
+            s.personal_income_tax,
+            s.insurance,
+            s.provident_fund,
+            (p.paid_in_amount - p.special_ticket_cost - s.net_salary - s.personal_income_tax - s.insurance - s.provident_fund) as income
+        from
+        project_info p
+        left join salary_info s on p.month = s.month
+        <where>
+            <if test="month != null and month != ''">
+                p.month = #{month}
+            </if>
+        </where>
+    </select>
+</mapper>

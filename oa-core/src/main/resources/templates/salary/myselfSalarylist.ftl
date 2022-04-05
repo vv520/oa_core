@@ -19,14 +19,17 @@
                 <tr>
                     <th scope="col">姓名</th>
                     <th scope="col">月份</th>
-                    <th scope="col">上班天数</th>
+                    <#--<th scope="col">上班天数</th>-->
                     <th scope="col">请假天数</th>
                     <th scope="col">基本工资</th>
                     <th scope="col">出差补贴</th>
                     <th scope="col">报销费用</th>
-                    <th scope="col">个人养老保险</th>
                     <th scope="col">个人公积金</th>
-                    <th scope="col">个人医保</th>
+                    <th scope="col">个人养老保险</th>
+                    <th scope="col">个人医疗保险</th>
+                    <th scope="col">个人失业保险</th>
+                    <th scope="col">个人大病医疗</th>
+                    <th scope="col">个人所得税</th>
                     <th scope="col">其他扣除项</th>
                     <th scope="col">实发工资</th>
                     <th scope="col">备注</th>
@@ -35,14 +38,17 @@
                     <tr>
                         <td><span>${(item.userName)!''}</span></td>
                         <td><span>${(item.month)!''}</span></td>
-                        <td><span>${(item.workDays)!''}</span></td>
+                        <#--<td><span>${(item.workDays)!''}</span></td>-->
                         <td><span>${(item.leaveDays)!''}</span></td>
                         <td><span>${(item.baseSalary)!''}</span></td>
                         <td><span>${(item.travelAllowance)!''}</span></td>
                         <td><span>${(item.feeReimburse)!''}</span></td>
-                        <td><span>${(item.personalEndowmentInsurance)!''}</span></td>
                         <td><span>${(item.personalProvidentFund)!''}</span></td>
+                        <td><span>${(item.personalEndowmentInsurance)!''}</span></td>
                         <td><span>${(item.personalMedicalInsurance)!''}</span></td>
+                        <td><span>${(item.personalUnemploymentInsurance)!''}</span></td>
+                        <td><span>${(item.personalIllnessInsurance)!''}</span></td>
+                        <td><span>${(item.personalIncomeTax)!''}</span></td>
                         <td><span>${(item.otherFee)!''}</span></td>
                         <td><span>${(item.netSalary)!''}</span></td>
                         <td><span>${(item.remark)!''}</span></td>

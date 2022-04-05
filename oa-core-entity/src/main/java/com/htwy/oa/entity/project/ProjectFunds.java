@@ -80,4 +80,16 @@ public class ProjectFunds {
      */
     @Column(name = "received_amount")
     private double receivedAmount;
+
+    /**
+     * 实收金额
+     */
+    @Column(name = "paid_in_amount")
+    private double paidInAmount;
+
+    /**
+     * 专票费用
+     */
+    @Column(name = "special_ticket_cost")
+    private double specialTicketCost;
 }

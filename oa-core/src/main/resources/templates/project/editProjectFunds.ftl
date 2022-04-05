@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>技术人员</span></label>
-                                <select class="userSelect form-control" name="userId">
+                                <select class="selectpicker show-tick form-control" data-live-search="true"  name="userId">
                                     <#if projectFunds??>
                                         <option value="${(projectFunds.user.userId)!''}">${projectFunds.user.realName}</option>
                                     </#if>
@@ -75,8 +75,16 @@
                                 <input name="projectAmount" class="form-control" value="${(projectFunds.projectAmount)!''}"/>
                             </div>
                             <div class="col-md-6 form-group">
+                                <label class="control-label"><span>实收金额</span></label>
+                                <input name="paidInAmount" class="form-control" value="${(projectFunds.paidInAmount)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
                                 <label class="control-label"><span>开票金额</span></label>
                                 <input name="invoiceAmount" class="form-control" value="${(projectFunds.invoiceAmount)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"><span>专票费用</span></label>
+                                <input name="specialTicketCost" class="form-control" value="${(projectFunds.specialTicketCost)!''}"/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>已收款金额</span></label>
@@ -99,10 +107,6 @@
 <script type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>
 <#include "/common/modalTip.ftl"/>
 <script type="text/javascript">
-    $(".userSelect").on("change", function () {
-        var selectUserId = $(this).val();
-
-    });
     //表单提交前执行的onsubmit()方法；返回false时，执行相应的提示信息；返回true就提交表单到后台校验与执行
     function check() {
         return true;

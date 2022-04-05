@@ -7,8 +7,10 @@ import com.github.stuxuhai.jpinyin.PinyinHelper;
 import com.htwy.oa.dao.roledao.RoleDao;
 import com.htwy.oa.dao.salary.SalaryDao;
 import com.htwy.oa.dao.salary.SalaryMapper;
+import com.htwy.oa.dao.user.UserDao;
 import com.htwy.oa.entity.role.Role;
 import com.htwy.oa.entity.salary.Salary;
+import com.htwy.oa.entity.user.User;
 import com.htwy.oa.service.salary.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -43,6 +45,8 @@ public class SalaryController {
     @Autowired
     private SalaryDao salaryDao;
 
+    @Autowired
+    UserDao userDao;
     /**
      * 薪资统计页面
      *
@@ -109,12 +113,20 @@ public class SalaryController {
             model.addAttribute("where", "xg");
             model.addAttribute("salary", salary);
         }
+        List<User> users = userDao.findAll();
+        model.addAttribute("users", users);
         return "salary/editSalary";
     }
 
     @RequestMapping(value = "salarySave", method = RequestMethod.POST)
     public String salarySave(Salary salary,
+                             @RequestParam(value = "userId", required = false) Long userId,
                              Model model) throws PinyinException {
+        if(userId != null) {
+            User user = userDao.findById(userId).get();
+            salary.setUserId(user.getUserId());
+            salary.setUserName(user.getRealName());
+        }
         salaryDao.save(salary);
         model.addAttribute("success", 1);
         return "/salarymanage";

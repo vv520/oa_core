@@ -30,7 +30,9 @@
                     <th scope="col">人天月份</th>
                     <th scope="col">人天</th>
                     <th scope="col">项目款</th>
+                    <th scope="col">实收金额</th>
                     <th scope="col">开票金额</th>
+                    <th scope="col">专票费用</th>
                     <th scope="col">已收款金额</th>
                     <th scope="col">操作</th>
                 </tr>
@@ -42,7 +44,9 @@
                         <td><span>${(item.month)!''}</span></td>
                         <td><span>${(item.workDays)!''}</span></td>
                         <td><span>${(item.projectAmount)!''}</span></td>
+                        <td><span>${(item.paidInAmount)!''}</span></td>
                         <td><span>${(item.invoiceAmount)!''}</span></td>
+                        <td><span>${(item.specialTicketCost)!''}</span></td>
                         <td><span>${(item.receivedAmount)!''}</span></td>
                         <td><a href="projectFundsEdit?projectFundsId=${item.projectFundsId}" class="label xiugai"><span
                                 class="glyphicon glyphicon-edit"></span> 修改</a> <a

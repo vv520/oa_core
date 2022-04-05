@@ -7,9 +7,9 @@
         <result column="user_name" property="userName" jdbcType="DOUBLE" javaType="java.lang.String"/>
         <result column="user_id" property="userId" jdbcType="BIGINT" javaType="java.lang.Long"/>
         <result column="month" property="month" jdbcType="VARCHAR" javaType="java.lang.String"/>
-        <result column="work_days" property="workDays" jdbcType="BIGINT" javaType="java.lang.Long"/>
-        <result column="leave_days" property="leaveDays" jdbcType="BIGINT" javaType="java.lang.Long"/>
-        <result column="price" property="price" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result column="work_days" property="workDays" jdbcType="DOUBLE" javaType="java.lang.Long"/>
+        <result column="leave_days" property="leaveDays" jdbcType="DOUBLE" javaType="java.lang.Long"/>
+        <result column="price" property="price" jdbcType="DOUBLE" javaType="java.lang.Long"/>
         <result column="base_salary" property="baseSalary" jdbcType="DOUBLE" javaType="java.lang.Double"/>
         <result column="travel_allowance" property="travelAllowance" jdbcType="DOUBLE" javaType="java.lang.Double"/>
         <result column="fee_reimburse" property="feeReimburse" jdbcType="DOUBLE" javaType="java.lang.Double"/>

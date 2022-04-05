@@ -25,11 +25,11 @@ public class Salary {
     @Column(name = "month")
     private String month; // 月份
     @Column(name = "work_days")
-    private Long workDays; // '上班天数
+    private double workDays; // '上班天数
     @Column(name = "leave_days")
-    private Long leaveDays; // 请假天数
+    private double leaveDays; // 请假天数
     @Column(name = "price")
-    private Long price; // '单价',
+    private double price; // '单价',
     @Column(name = "base_salary")
     private double baseSalary; // '基本工资',
     @Column(name = "travel_allowance")
