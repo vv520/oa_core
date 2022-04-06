@@ -31,8 +31,12 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".thistable").on("click", ".searchClick", function () {
-        var search = $(".thistable .search").val();
-        $(".thistable").load("myselfSalaryQuery", {search: search});
-    });
+    function queryMyselfSalary() {
+        var username = $("#username").val();
+        var month = $("#month").val();
+        $(".thistable").load("myselfSalaryQuery", {
+            username: username,
+            month: month
+        });
+    }
 </script>

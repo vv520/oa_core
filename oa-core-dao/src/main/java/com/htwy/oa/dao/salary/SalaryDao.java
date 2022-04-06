@@ -16,8 +16,8 @@ import org.springframework.data.jpa.repository.Query;
 public interface SalaryDao extends JpaRepository<Salary, Long> {
 
     @Query(value = "from Salary u where 1 = 1 " +
-            "and u.userId = coalesce(?1, u.userId) " +
+            "and u.userName = coalesce(?1, u.userName) " +
             "and u.month = coalesce(?2, u.month)"
     )
-    Page<Salary> querySalaryPage(Long userId, String month, Pageable pa);
+    Page<Salary> querySalaryPage(String userName, String month, Pageable pa);
 }

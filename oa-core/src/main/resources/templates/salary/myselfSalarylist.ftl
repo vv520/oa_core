@@ -1,13 +1,33 @@
 <div class="bgc-w box box-primary">
     <!--盒子头-->
     <div class="box-header">
-        <div class="box-title">
-            <div class="input-group" style="width: 150px;">
-                <input type="text" class="form-control input-sm search"
-                       placeholder="月份查询"/>
-                <div class="input-group-btn">
-                    <a class="btn btn-sm btn-default"><span
-                                class="glyphicon glyphicon-search searchClick"></span></a>
+        <h3 class="box-title">
+            <a href="##" class="label label-success" onclick="queryMyselfSalary();" style="padding: 5px;margin-left:5px;">
+                <span class="glyphicon glyphicon-search"></span> 查询</a>
+        </h3>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3 col-xs-3 col-xxs-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-6 control-label" for="select">用户名</div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" runat="server" id="username"
+                                       name="username"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-3 col-xxs-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-6 control-label" for="select">月份</div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" runat="server" id="month"
+                                       name="month"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
