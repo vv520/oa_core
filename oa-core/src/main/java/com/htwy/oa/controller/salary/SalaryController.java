@@ -90,6 +90,11 @@ public class SalaryController {
         return "salary/salarylist";
     }
 
+    /**
+     * 薪资计算
+     * @param month
+     * @return
+     */
     @RequestMapping("salaryCalculation")
     public ModelAndView calculation(String month) {
         //薪资计算

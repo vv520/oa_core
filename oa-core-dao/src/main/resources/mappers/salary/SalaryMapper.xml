@@ -72,14 +72,20 @@
                                personal_medical_insurance,
                                company_endowment_insurance, company_provident_fund, company_medical_insurance,
                                other_fee, net_salary,
-                               employee_income, net_income, remark)
+                               employee_income, net_income, remark,
+                               personal_unemployment_insurance,personal_injury_insurance,personal_illness_insurance,
+                               company_unemployment_insurance, company_injury_insurance, company_illness_insurance,
+                               personal_income_tax)
         values (#{userId}, #{userName}, #{month}, #{workDays}, #{leaveDays}, #{price}, #{baseSalary},
                 #{travelAllowance},
                 #{feeReimburse}, #{personalEndowmentInsurance}, #{personalProvidentFund},
                 #{personalMedicalInsurance},
                 #{companyEndowmentInsurance}, #{companyProvidentFund}, #{companyMedicalInsurance},
                 #{otherFee}, #{netSalary},
-                #{employeeIncome}, #{netIncome}, #{remark});
+                #{employeeIncome}, #{netIncome}, #{remark},
+                #{personalUnemploymentInsurance}, #{personalInjuryInsurance}, #{personalIllnessInsurance},
+                #{companyUnemploymentInsurance}, #{companyInjuryInsurance}, #{companyIllnessInsurance},
+                #{personalIncomeTax});
     </insert>
 
     <delete id="deleteByMonth" parameterType="java.lang.String">

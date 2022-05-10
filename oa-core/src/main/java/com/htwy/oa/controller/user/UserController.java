@@ -118,10 +118,6 @@ public class UserController {
                                @RequestParam("roleid") Long roleid,
                                @RequestParam(value = "isbackpassword", required = false) boolean isbackpassword,
                                Model model) throws PinyinException {
-        System.out.println(user);
-        System.out.println(deptid);
-        System.out.println(positionid);
-        System.out.println(roleid);
         Dept dept = ddao.findById(deptid).get();
         Position position = pdao.findById(positionid).get();
         Role role = rdao.getOne(roleid);
@@ -147,6 +143,7 @@ public class UserController {
             user2.setThemeSkin(user.getThemeSkin());
             user2.setSalary(user.getSalary());
             user2.setFundBase(user.getFundBase());
+            user2.setMedicalSecurityBase(user.getMedicalSecurityBase());
             user2.setSocialSecurityBase(user.getSocialSecurityBase());
             user2.setFatherId(dept.getDeptmanager());
             if (isbackpassword) {

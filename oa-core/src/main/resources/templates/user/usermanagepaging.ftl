@@ -83,8 +83,6 @@
 				<#list users as user>
 					<tr>
                         <td>
-                            <!-- <img src="images/handsome.jpg" class="img-circle"
-                                style="width: 25px; height: 25px;" /> -->
 							<#if user.imgPath?? && user.imgPath!=''  >
 								<img style="width: 25px;height: 25px;"
                                      class="profile-user-img img-responsive img-circle"

@@ -57,8 +57,12 @@ public class SalaryServiceImpl implements SalaryService {
         //查找计算用户
         List<User> userList = userDao.findAll();
         for (User user : userList) {
+            if(user.getSuperman()){
+                continue;
+            }
             double insuranceBase = user.getSocialSecurityBase(); //个人参保基数
             double fundbase = user.getFundBase(); //个人公积金基数
+            double medicalSecurityBase = user.getMedicalSecurityBase();//个人医保基数
             Salary salary = new Salary();
             salary.setUserId(user.getUserId());
             salary.setUserName(user.getRealName());
@@ -71,16 +75,16 @@ public class SalaryServiceImpl implements SalaryService {
             salary.setFeeReimburse(0); //费用报销
             salary.setPersonalEndowmentInsurance(insuranceBase * 0.08); //个人养老保险 = 个人参保基数 * 0.08
             salary.setPersonalProvidentFund(fundbase * 0.05); //个人公积金 = 个人公积金基数 * 0.05
-            salary.setPersonalMedicalInsurance(insuranceBase * 0.02);//个人医保 = 个人参保基数 * 0.02
+            salary.setPersonalMedicalInsurance(medicalSecurityBase * 0.02);//个人医保 = 个人参保基数 * 0.02
             salary.setCompanyEndowmentInsurance(insuranceBase * 0.16);//企业养老保险 = 个人参保基数 * 0.16
             salary.setCompanyProvidentFund(fundbase * 0.05);//企业公积金 = 个人公积金基数 * 0.05
-            salary.setCompanyMedicalInsurance(insuranceBase * 0.06);//企业医保 = 个人参保基数 * 0.06
+            salary.setCompanyMedicalInsurance(salary.getPersonalMedicalInsurance() * 3.4);//企业医保 = 个人医保* 3.4
 
-            salary.setPersonalUnemploymentInsurance(0); //个人失业保险
+            salary.setPersonalUnemploymentInsurance(insuranceBase * 0.005); //个人失业保险
             salary.setPersonalInjuryInsurance(0);  //个人工伤保险
             salary.setPersonalIllnessInsurance(0); //个人大病医疗
-            salary.setCompanyUnemploymentInsurance(0); //企业失业保险
-            salary.setCompanyInjuryInsurance(0);  //企业工伤保险
+            salary.setCompanyUnemploymentInsurance(insuranceBase * 0.005); //企业失业保险
+            salary.setCompanyInjuryInsurance(insuranceBase * 0.002);  //企业工伤保险
             salary.setCompanyIllnessInsurance(0); //企业大病医疗
             salary.setPersonalIncomeTax(0); //个人所得税
             salary.setOtherFee(0);//其他扣除项

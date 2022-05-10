@@ -72,7 +72,7 @@ public interface UserDao extends JpaRepository<User, Long> {
     User getOneUser(String userName, String password);
 
     @Query(value = "from User u where 1 = 1 " +
-            "and u.userName like %?1%" +
+            "and u.userName =  coalesce(?1, u.userName)" +
             "and u.dept.deptId = coalesce(?2, u.dept.deptId) " +
             "and u.role.roleId = coalesce(?3, u.role.roleId)"
             )

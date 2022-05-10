@@ -86,6 +86,9 @@ public class User {
     @Column(name = "social_security_base")
     private Double socialSecurityBase; //社保基数
 
+    @Column(name = "medical_security_base")
+    private Double medicalSecurityBase; //医保基数
+
     @Column(name = "img_path")
     private String imgPath;        //用户头像路径
 
@@ -449,6 +452,14 @@ public class User {
 
     public void setSocialSecurityBase(Double socialSecurityBase) {
         this.socialSecurityBase = socialSecurityBase;
+    }
+
+    public Double getMedicalSecurityBase() {
+        return medicalSecurityBase;
+    }
+
+    public void setMedicalSecurityBase(Double medicalSecurityBase) {
+        this.medicalSecurityBase = medicalSecurityBase;
     }
 
     @Override

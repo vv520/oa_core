@@ -136,12 +136,16 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>社保基数</span></label> <input
-                                        name="fundBase" class="form-control" value="${(user.fundBase)!''}"/>
+                                        name="socialSecurityBase" class="form-control" value="${(user.socialSecurityBase)!''}"/>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="control-label"><span>医保基数</span></label> <input
+                                    name="medicalSecurityBase" class="form-control" value="${(user.medicalSecurityBase)!''}"/>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>公积金基数</span></label> <input
-                                        name="socialSecurityBase" class="form-control"
-                                        value="${(user.socialSecurityBase)!''}"/>
+                                        name="fundBase" class="form-control"
+                                        value="${(user.fundBase)!''}"/>
                             </div>
 
                             <#if where??>
